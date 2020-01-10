@@ -1,8 +1,8 @@
 {
-	"name": "adamasantares/dxf",
-	"description": "A simple DXF creator for PHP",
+	"name": "jean-gblr/dxf",
+	"description": "A simple DXF creator for PHP forked from adamasantares/dxf with added functions",
 	"keywords": ["php", "dxf"],
-	"homepage": "https://github.com/active-programming/DXF-Creator-for-PHP#readme",
+	"homepage": "https://github.com/jean-gblr/DXF-Creator-for-PHP",
 	"type": "library",
 	"license": "MIT",
 	"authors": [
@@ -16,7 +16,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"adamasantares\\dxf\\": ""
+			"jean-gblr\\dxf\\": ""
 		}
 	}
 }
