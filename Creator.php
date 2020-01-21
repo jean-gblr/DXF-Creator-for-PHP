@@ -133,11 +133,12 @@ class Creator {
      * @param string $lineType Line type (@see adamasantares\dxf\LineType class)
      * @return Creator Instance
      */
-    public function addLayer($name, $color = Color::GRAY, $lineType = LineType::SOLID)
+    public function addLayer($name, $color = Color::GRAY, $lineType = LineType::SOLID, $width = 0)
     {
         $this->layers[$name] = [
             'color' => $color,
-            'lineType' => $lineType
+            'lineType' => $lineType,
+            'width' => $width
         ];
         $this->lTypes[$lineType] = $lineType;
         return $this;
@@ -151,10 +152,10 @@ class Creator {
      * @param string $lineType (optional) Only for new layer
      * @return Creator Instance
      */
-    public function setLayer($name, $color = Color::GRAY, $lineType = LineType::SOLID)
+    public function setLayer($name, $color = Color::GRAY, $lineType = LineType::SOLID, $width = 0)
     {
         if (!isset($this->layers[$name])) {
-            $this->addLayer($name, $color, $lineType);
+            $this->addLayer($name, $color, $lineType, $width);
         }
         $this->layerName = $name;
         return $this;
@@ -896,6 +897,8 @@ class Creator {
                     "{$layer['color']}\n" .
                     "6\n" . // Linetype name
                     "{$layer['lineType']}\n" .
+                    "370\n" .
+                    "{$layer['width']}\n" .
                     "390\n" .
                     "F\n" .
                     "0\n";
